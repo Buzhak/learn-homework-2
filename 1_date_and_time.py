@@ -1,3 +1,6 @@
+from datetime import datetime, timedelta
+# import locale
+# locale.setlocale(locale.LC_ALL, "ru_RU")
 """
 Домашнее задание №2
 
@@ -9,19 +12,16 @@
 """
 
 def print_days():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
-
-
+    dt_now = datetime.now()
+    day_ago = dt_now - timedelta(days = 1)
+    month_ago = dt_now - timedelta(days = 30)
+    print('Вчера: ' + day_ago.strftime('%d.%m.%Y'))
+    print('Сегодня: ' + dt_now.strftime('%d.%m.%Y'))
+    print('30 назад: ' + month_ago.strftime('%d.%m.%Y'))
+    
 def str_2_datetime(date_string):
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    date_dt = datetime.strptime(date_string, '%y/%m/%d %H:%M:%S.%f')
+    print('Добавленная дата: ' + date_dt.strftime('%d/%m/%Y %H:%M'))
 
 if __name__ == "__main__":
     print_days()
